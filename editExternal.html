@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <title>External</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}">
+  <link th:href="@{/css/footer.css}" rel="stylesheet">
+  <link th:href="@{/css/navigationBar.css}" rel="stylesheet">
+  <script type="text/javascript" th:src="@{/javascript/home.js}"></script>
+</head>
+<body>
+<div th:replace="~{fragments/navigationBar :: navigation}"></div>
+<section class="container mt-2">
+  <section class="mt-2">
+    <h1>COMSC Assessment Tracking Form</h1>
+    <h2>Section-3 External Moderation</h2>
+    <form method="post" action="/external/edit" th:object="${externalForm}" id="form" class="mt-2">
+      <div class="mb-3">
+        <label for="moduleTitleExternal" class="form-label">Module Title</label>
+        <input id="moduleTitleExternal" type="text" th:field="*{moduleTitle}" class="form-control">
+        <div th:errors="*{moduleTitle}" th:if="${#fields.hasErrors('moduleTitle')}" class="alert alert-danger mt-1">Module Title Error</div>
+      </div>
+      <div class="mb-3">
+        <label for="moduleCodeExternal">Module Code</label>
+        <input id="moduleCodeExternal" type="text" th:field="*{moduleCode}" class="form-control">
+        <div th:errors="*{moduleCode}" th:if="${#fields.hasErrors('moduleCode')}" class="alert alert-danger mt-1">Module Code Error</div>
+      </div>
+      <div class="mb-3">
+        <label for="assessmentPeriodExternal">Assessment Period</label>
+        <input id="assessmentPeriodExternal" type="text" th:field="*{assessmentPeriod}"  class="form-control">
+        <div th:errors="*{assessmentPeriod}" th:if="${#fields.hasErrors('assessmentPeriod')}" class="alert alert-danger mt-1">Assessment Period Error</div>
+      </div>
+      <div class="mb-3">
+        <label for="assessmentTypeExternal">Type Of Assessment</label>
+        <input id="assessmentTypeExternal" type="text" th:field="*{assessmentType}" class="form-control">
+
+        <div th:errors="*{assessmentType}" th:if="${#fields.hasErrors('assessmentType')}" class="alert alert-danger mt-1">Assessment Type Error</div>
+      </div>
+      <div class="mb-3">
+        <label for="moduleLeaderExternal">Module Leader</label>
+        <input id="moduleLeaderExternal" type="text" th:field="*{moduleLeader}" class="form-control">
+        <div th:errors="*{moduleLeader}" th:if="${#fields.hasErrors('moduleLeader')}" class="alert alert-danger mt-1">Module Leader Error</div>
+      </div>
+      <div class="mb-3">
+        <label for="internalModeratorExternal">Internal Moderator</label>
+        <input id="internalModeratorExternal" type="text" th:field="*{internalModerator}" class="form-control">
+        <div th:errors="*{internalModerator}" th:if="${#fields.hasErrors('internalModerator')}" class="alert alert-danger mt-1">Internal Moderator Error</div>
+      </div>
+      <div class="mb-3">
+        <label for="externalModeratorExternal">External Moderator</label>
+        <input id="externalModeratorExternal" type="text" th:field="*{externalModerator}" class="form-control">
+        <div th:errors="*{externalModerator}" th:if="${#fields.hasErrors('externalModerator')}" class="alert alert-danger mt-1">External Moderator Error</div>
+      </div>
+      <div class="mt-2">
+        <div>
+          <h4>External Moderator's Feedback</h4>
+          <aside class="mb-3">
+            <div class="mb-3">Assessment Status</div>
+            <input type="checkbox" id="a1" class="form-check-input"> <label for="a1" class="form-check-label">Assessment approved</label>
+            <br>
+            <input type="checkbox" id="a2" class="form-check-input"> <label for="a2" class="form-check-label">Assessment approved subject to minor modification</label>
+            <br>
+            <input type="checkbox" id="a3" class="form-check-input"> <label for="a3" class="form-check-label">Assessment to be reconsidered in light of comments</label>
+            <br>
+            <input type="checkbox" id="a4" class="form-check-input"> <label for="a4" class="form-check-label">Assessment to be re-sent to panel after modification</label>
+          </aside>
+          <div class="mb-3">
+            <label for="summaryExternal">Feedback and required the changes to the assessment: </label><br>
+            <textarea id="summaryExternal" rows="5" class="form-control" name="text" placeholder="Click to enter the text!"></textarea>
+          </div>
+          <br>
+          <label for="date1External" class="form-label">Date Completed: </label>
+          <input id="date1External" type="date" name="date" class="form-control">
+          <br>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+  </section>
+</section>
+<div th:replace="~{fragments/footer :: footerBlock}"></div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/navigationBar.css}" rel="stylesheet">
+    <link th:href="@{/css/footer.css}" rel="stylesheet">
+    <link th:href="@{/css/home.css}" rel="stylesheet">
+    <script type="text/javascript" th:src="@{/javascript/home.js}"></script>
+    <title>Home</title>
+</head>
+<body class="bg">
+    <div th:replace="~{fragments/navigationBar :: navigation}"></div>
+    <div th:each="authority: ${authority}">
+        <div th:if="${authority.authority == 'ROLE_LEADER'}">
+
+        <h2>Want to create a New Assessment?</h2>
+        <button onclick="redirectToAssessment('/moduleLead')">Assessment Page</button>
+    </div>
+    </div>
+        <article th:replace="~{fragments/module :: module}"></article>
+    <div th:replace="~{fragments/footer :: footerBlock}"></div>
+</body>
+</html>

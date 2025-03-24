@@ -1,0 +1,47 @@
+.bg{
+    background-color: #f8f9fa;
+}
+
+.Assessment_box { 
+    width: 950px; 
+    padding: 10px; 
+    border-radius: 10px; 
+    margin: 0 auto; 
+    background-color:#fff;
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} 
+
+article {
+    margin:0px;
+    padding:0px;
+    padding-top: 25px;
+    justify-content: center;
+    text-align: center;
+}
+
+ul {
+    margin: 0;
+    list-style-type: none;
+}
+
+.Assessment_box div {
+    display: inline;
+    position: relative;
+}
+
+.h1, .h3, .a { 
+    color: #d4374a;  
+}
+
+.a{
+    text-decoration: none;
+}
+
+.titleSpan{
+    color: #2b2828; 
+    font-size: large;
+}

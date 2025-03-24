@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Module Leader Page</title>
+        <link th:href="@{/css/moduleLeader.css}" rel="stylesheet">
+        <link th:href="@{/css/navigationBar.css}" rel="stylesheet">
+        <link th:href="@{/css/footer.css}" rel="stylesheet">
+        <script type="text/javascript" th:src="@{/javascript/home.js}"></script>
+    </head>
+    <body class="main">
+        <div th:replace="~{fragments/navigationBar :: navigation}"></div>
+        <div class="form">
+            <h1 class="h1">Module Leader Form</h1>
+            <form action="/moduleLead" method="POST" id="moduleLead" name="moduleLead" th:object="${moduleLead}">
+                <div class="form-details">
+                    <label class="form-value" for="moduleCode">Module Code:</label>
+                    <input th:field="*{moduleCode}" type="text" id="moduleCode" name="moduleCode" required>
+                </div>
+                <div class="form-details">
+                    <label class="form-value" for="moduleTitle">Module Title:</label>
+                    <input th:field="*{moduleTitle}" type="text" id="moduleTitle" name="moduleTitle" required>
+                </div>
+                <div class="form-details">
+                    <label class="form-value" for="lecturer">Lecturer:</label>
+                    <input th:field="*{lecturer}" type="text" id="lecturer" name="lecturer" required>
+                </div>
+                <div class="form-details">
+                    <label class="form-value" for="assessmentTitle">Assessment Title:</label>
+                    <input th:field="*{assessmentTitle}" type="text" id="assessmentTitle" name="assessmentTitle" required>
+                </div>
+                <div class="form-details">
+                    <label class="form-value" for="assessmentNumber">Assessment Number:</label>
+                    <input th:field="*{assessmentNumber}" type="text" id="assessmentNumber" name="assessmentNumber" required>
+                </div>
+                <div class="form-details">
+                    <label class="form-value" for="dateSet">Date Set:</label>
+                    <input th:field="*{dateSet}" type="text" id="dateSet" name="dateSet" required>
+                </div>
+                <div class="form-details">
+                    <label class="form-value" for="submissionDateTime">Submission Date and Time:</label>
+                    <input th:field="*{submissionDate}" type="text" id="submissionDateTime" name="submissionDateTime" required>
+                </div>
+                <div class="form-details">
+                    <label class="form-value" for="feedbackReturnDate">Feedback Return Date:</label>
+                    <input th:field="*{feedbackDate}" type="text" id="feedbackReturnDate" name="feedbackReturnDate" required>
+                </div>
+                <div class="form-details">
+                    <label class="form-value" for="pdfLink">PDF Link:</label>
+                    <input th:field="*{pdfLink}" type="text" id="pdfLink" name="pdfLink">
+                </div>
+                <div class="form-details">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div th:replace="~{fragments/footer :: footerBlock}"></div>
+    </body>
+</html>

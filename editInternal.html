@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>COMSC Assessment Tracking Form</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}">
+  <link th:href="@{/css/footer.css}" rel="stylesheet">
+  <link th:href="@{/css/navigationBar.css}" rel="stylesheet">
+  <script type="text/javascript" th:src="@{/javascript/home.js}"></script>
+</head>
+<body>
+<div th:replace="~{fragments/navigationBar :: navigation}"></div>
+<section class="container mt-2">
+  <h1 class="main-heading">COMSC Assessment Tracking Form</h1>
+  <h2 class="sub-heading">Section-1 Internal Moderator</h2>
+  <form action="/internal/edit" method="post" th:object="${trackingForm}" id="form" class="moderator-form mt-2">
+    <div class="mb-3">
+      <label for="moduleTitle" class="form-label">Module Title</label>
+      <input type="text" th:field="*{moduleTitle}" class="form-control" id="moduleTitle">
+      <div th:errors="*{moduleTitle}" th:if="${#fields.hasErrors('moduleTitle')}" class="alert alert-danger mt-1">Module Title Error</div>
+    </div>
+    <div class="mb-3">
+      <label for="moduleCode" class="form-label">Module Code</label>
+      <input type="text" th:field="*{moduleCode}" class="form-control" id="moduleCode">
+      <div th:errors="*{moduleCode}" th:if="${#fields.hasErrors('moduleCode')}" class="alert alert-danger mt-1">Module Code Error</div>
+    </div>
+    <div class="mb-3">
+      <label for="assessmentPeriod" class="form-label">Assessment Period</label>
+      <input type="text" th:field="*{assessmentPeriod}" class="form-control" id="assessmentPeriod">
+      <div th:errors="*{assessmentPeriod}" th:if="${#fields.hasErrors('assessmentPeriod')}" class="alert alert-danger mt-1">Assessment Period Error</div>
+    </div>
+    <div class="mb-3">
+      <label for="assessmentType" class="form-label">Type Of Assessment</label>
+      <input type="text" th:field="*{typeOfAssessment}" class="form-control" id="assessmentType">
+      <div th:errors="*{typeOfAssessment}" th:if="${#fields.hasErrors('typeOfAssessment')}" class="alert alert-danger mt-1">Assessment Type Error</div>
+    </div>
+    <div class="mb-3">
+      <label for="moduleLeader" class="form-label">Module Leader</label>
+      <input type="text" th:field="*{moduleLeader}" class="form-control" id="moduleLeader">
+      <div th:errors="*{moduleLeader}" th:if="${#fields.hasErrors('moduleLeader')}" class="alert alert-danger mt-1">Module Leader Error</div>
+    </div>
+    <div class="mb-3">
+      <label for="internalModerator" class="form-label">Internal Moderator</label>
+      <input type="text" th:field="*{internalModerator}" class="form-control" id="internalModerator">
+      <div th:errors="*{internalModerator}" th:if="${#fields.hasErrors('internalModerator')}" class="alert alert-danger mt-1">Internal Moderator Error</div>
+    </div>
+    <div class="mb-3">
+      <label for="externalModerator" class="form-label">External Moderator</label>
+      <input type="text" th:field="*{externalModerator}" class="form-control" id="externalModerator">
+      <div th:errors="*{externalModerator}" th:if="${#fields.hasErrors('externalModerator')}" class="alert alert-danger mt-1">External Moderator Error</div>
+    </div>
+
+    <div class="container mt-5">
+      <h4>Assessment Evaluation by Internal Moderator</h4>
+      <ol>
+        <li class="mb-2">
+          <div class="form-check">
+            <input type="checkbox" th:field="*{part1}" class="form-check-input" id="part1">
+            <label for="part1" class="form-check-label">Draft assessment and marking criteria/guidelines placed on Assessment Team by setter, and moderator notified</label>
+          </div>
+          <label for="datePart1" class="form-label mt-2">Date Completed:</label>
+          <input type="date" th:field="*{datePart1}" class="form-control" id="datePart1">
+        </li>
+        <li class="mb-2">
+          <div class="form-check">
+            <input type="checkbox" th:field="*{part2}" class="form-check-input" id="part2">
+            <label for="part2" class="form-check-label">Copy of last year’s assessment available in last year’s folder for comparison</label>
+          </div>
+          <label for="datePart2" class="form-label mt-2">Date Completed:</label>
+          <input type="date" th:field="*{datePart2}" class="form-control" id="datePart2">
+        </li>
+      </ol>
+
+      <table class="table table-bordered mt-5">
+        <tr>
+          <th>Criterion</th>
+          <th>Met?</th>
+        </tr>
+        <tr>
+          <td>The link between learning outcomes and assessment activities is clear</td>
+          <td><input type="checkbox" th:field="*{criteria1}" class="form-check-input" id="criteria1"></td>
+        </tr>
+        <tr>
+          <td>The activities to be completed as part of the assessment are clear and appropriate</td>
+          <td><input type="checkbox" th:field="*{criteria2}" class="form-check-input" id="criteria2"></td>
+        </tr>
+        <tr>
+          <td>The criteria to be used to assign marks to parts of the assessment are clear and appropriate</td>
+          <td><input type="checkbox" th:field="*{criteria3}" class="form-check-input" id="criteria3"></td>
+        </tr>
+        <tr>
+          <td>The requirements for each grade classification are clear</td>
+          <td><input type="checkbox" th:field="*{criteria4}" class="form-check-input" id="criteria4"></td>
+        </tr>
+        <tr>
+          <td>The amount of work being undertaken is fair given the relative weighting of the assessment to the overall module</td>
+          <td><input type="checkbox" th:field="*{criteria5}" class="form-check-input" id="criteria5"></td>
+        </tr>
+        <tr>
+          <td>Submission arrangements are clearly stated</td>
+          <td><input type="checkbox" th:field="*{criteria6}" class="form-check-input" id="criteria6"></td>
+        </tr>
+        <tr>
+          <td>Penalties for incorrect submissions are stated</td>
+          <td><input type="checkbox" th:field="*{criteria7}" class="form-check-input" id="criteria7"></td>
+        </tr>
+        <tr>
+          <td>Feedback return date and method clearly stated</td>
+          <td><input type="checkbox" th:field="*{criteria8}" class="form-check-input" id="criteria8"></td>
+        </tr>
+      </table>
+
+      <div class="mb-3">
+        <label for="summary" class="form-label">Summary on the changes to the assessment:</label>
+        <textarea id="summary" rows="5" th:field="*{summary}" class="form-control" placeholder="Click to enter the text!"></textarea>
+      </div>
+      <div class="form-check mb-3">
+        <input type="checkbox" th:field="*{part3}" class="form-check-input" id="part3">
+        <label for="part3" class="form-check-label">Assessment moderated and passed to module leader</label>
+      </div>
+      <div class="mb-3">
+        <label for="datePart3" class="form-label">Date Completed:</label>
+        <input type="date" th:field="*{datePart3}" class="form-control" id="datePart3">
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+  </form>
+</section>
+<div th:replace="~{fragments/footer :: footerBlock}"></div>
+</body>
+</html>

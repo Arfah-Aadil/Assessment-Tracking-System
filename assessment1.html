@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Assessment Details
+        </title>
+        <link th:href="@{/css/navigationBar.css}" rel="stylesheet">
+        <link th:href="@{/css/footer.css}" rel="stylesheet">
+        <link th:href="@{/css/assessment.css}" rel="stylesheet">  
+        <script type="text/javascript" th:src="@{/javascript/assessment.js}"></script>   
+        <script type="text/javascript" th:src="@{/javascript/home.js}"></script>
+    </head>
+    <body>
+        <div th:replace="~{fragments/navigationBar :: navigation}"></div>
+        <div th:each="assessmentDetail: ${assessmentDetails}">
+            <div th:if="${assessmentTitleH == assessmentDetail.assessmentTitle}">
+                <header class="header">
+                    <h1 th:text="${assessmentDetail.assessmentTitle}">
+                    </h1>
+                </header>
+                <main class="main">
+                    <div class="title">
+                        <ul>
+                            <h2>Assessment Details:</h2>
+                            <li>Module Code: <span th:text="${assessmentDetail.moduleCode}"></span></li>
+                            <li>Module Title: <span th:text="${assessmentDetail.moduleTitle}"></span></li>
+                            <li>Lecturer: <span th:text="${assessmentDetail.lecturer}"></span></li>
+                            <li>Assessment Title: <span th:text="${assessmentDetail.assessmentTitle}"></span></li>
+                            <li>Assessment Number: <span th:text="${assessmentDetail.assessmentNumber}"></span></li>
+                            <li>Date Set: <span th:text="${assessmentDetail.dateSet}"></span></li>
+                            <li>Submission Date and Time: <span th:text="${assessmentDetail.submissionDate}"></span></li>
+                            <li>Feedback return date: <span th:text="${assessmentDetail.feedbackDate}"></span></li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <h2>Assessment PDF: </h2>
+                        <iframe th:src="${assessmentDetail.pdfLink}" allowfullscreen class="pdf-preview"></iframe>
+                    </div>
+                </main>            
+                <div th:each="authority: ${authority}">
+                    <div th:switch="${authority.authority}">
+                    <div th:case="ROLE_INTERNAL" class="button">
+                        <button id="b" onclick="redirectToModerator('/internal')"> <p>Review As Internal</p></button>
+        
+                    </div>
+                    <div th:case="ROLE_EXTERNAL" class="button">
+                        <button id="b" onclick="redirectToModerator('/external')"> <p>Review As External</p></button>
+        
+                    </div>
+                    <div th:case="ROLE_PANEL" class="button">
+                        <button id="b" onclick="redirectToModerator('/panel')"> <p>Review As Panel</p></button>
+        
+                    </div>
+                    </div>
+                </div> 
+                <div>
+                    <h2>Status Bar</h2>
+                    <hr>
+                </div>       
+        <div th:replace="~{fragments/footer :: footerBlock}"></div>
+    </body>
+</html>

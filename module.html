@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/home.css}" rel="stylesheet">
+</head>
+<body>
+    <article th:fragment="module">
+            <div class="Assessment_box" th:each="module: ${Modules}">
+                <div class="text">
+                    <span class="titleSpan">Module Name :</span>
+                    <h1 class="h1"><a class="a" th:href="@{/assessment(assessmentTitleH=${module.assessmentTitle})}" th:text="${module.moduleName}"></a></h1>
+                    <span class="titleSpan">Assessment Title :</span>
+                    <h3 class="h3" th:text="${module.assessmentTitle}"></h3>
+                    <span class="titleSpan">Module Lead :</span>
+                    <h3 class="h3" th:text="${module.moduleLead}"></h3>
+                </div>
+            </div>
+    </article>
+</body>
+</html>

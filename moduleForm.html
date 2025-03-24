@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Module Form</title>
+        <link th:href="@{/css/moduleForm.css}" rel="stylesheet">
+        <link th:href="@{/css/navigationBar.css}" rel="stylesheet">
+        <link th:href="@{/css/footer.css}" rel="stylesheet">
+        <script type="text/javascript" th:src="@{/javascript/home.js}"></script>
+    </head>
+    <body class="main">
+        <div th:replace="~{fragments/navigationBar :: navigation}"></div>
+        <div class="form">
+            <h1 class="h1">Assign Modules</h1>
+            <form action="/moduleForm" method="POST" id="moduleForm" name="moduleForm" th:object="${moduleForm}">
+                <div class="form-details">
+                    <label class="form-value" for="moduleName">Module Name:</label>
+                    <input th:field="*{moduleName}" type="text" id="moduleName" name="moduleName" required>
+                </div>
+                <div class="form-details">
+                    <label class="form-value" for="assessmentTitle">Assessment Title:</label>
+                    <input th:field="*{assessmentTitle}" type="text" id="assessmentTitle" name="assessmentTitle" required>
+                </div>
+                <div class="form-details">
+                    <label class="form-value" for="moduleLead">Module Lead:</label>
+                    <input th:field="*{moduleLead}" type="text" id="moduleLead" name="moduleLead" required>
+                </div>
+                <div class="form-details">
+                    <label class="form-value" for="externalModulator">External Modulator:</label>
+                    <input th:field="*{externalModulator}" type="text" id="externalModulator" name="externalModulator" required>
+                </div>
+                <div class="form-details">
+                    <label class="form-value" for="internalModulator">Internal Modulator:</label>
+                    <input th:field="*{internalModulator}" type="text" id="internalModulator" name="internalModulator" required>
+                </div>
+                <div class="form-details">
+                    <label class="form-value" for="panel">Panel:</label>
+                    <input th:field="*{panel}" type="text" id="panel" name="panel" required>
+                </div>
+                <div class="form-details">
+                    <button class="button" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div th:replace="~{fragments/footer :: footerBlock}"></div>
+    </body>
+</html>

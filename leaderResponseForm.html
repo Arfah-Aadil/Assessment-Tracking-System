@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Leader Response</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}"> 
+        <link th:href="@{/css/footer.css}" rel="stylesheet">
+        <link th:href="@{/css/navigationBar.css}" rel="stylesheet"> 
+        <script type="text/javascript" th:src="@{/javascript/home.js}"></script>
+    </head>
+    <body>
+        <div th:replace="~{fragments/navigationBar :: navigation}"></div>
+        <div class="container mt-2">
+            <div class="mt-2">
+        
+                <h3>Response to Moderator</h3>
+                <p>To be completed by setter</p>
+                <form action = "/leaderResponse" method="POST" id="leaderResponse" name="leaderResponse" th:object="${leaderResponse}">
+                    <div class="mb-3">
+                        <label for="moduleTitleExternal" class="form-label">Module Title</label>
+                        <input id="moduleTitleExternal" type="text" name="moduleTitle" class="form-control">
+                        <div th:errors="*{moduleTitle}" th:if="${#fields.hasErrors('moduleTitle')}" class="alert alert-danger mt-1">Module Title Error</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="moduleCodeExternal">Module Code</label>
+                        <input id="moduleCodeExternal" type="text" name="moduleCode" class="form-control">
+                        <div th:errors="*{moduleCode}" th:if="${#fields.hasErrors('moduleCode')}" class="alert alert-danger mt-1">Module Code Error</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="moduleLeaderExternal">Module Leader</label>
+                        <input id="moduleLeaderExternal" type="text" name="moduleLeader" class="form-control">
+                        <div th:errors="*{moduleLeader}" th:if="${#fields.hasErrors('moduleLeader')}" class="alert alert-danger mt-1">Module Leader Error</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="moderator">Moderator</label>
+                        <input id="moderator" type="text" name="moderator" class="form-control">
+                        <div th:errors="*{moderator}" th:if="${#fields.hasErrors('moderator')}" class="alert alert-danger mt-1">Moderator Error</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="summaryExternal">Response to moderator’s comments:</label><br>
+                        <textarea th:field="*{response}" id="summaryExternal" rows="5" class="form-control" name="text" placeholder="Click to enter the text!"></textarea>
+                    </div>
+
+                    <br>
+                    <label for="dateResponse" class="form-label">Date Completed: </label>
+                    <input id="dateResponse" type="date" name="date" class="form-control">
+                    <br>                
+            </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+        </div>
+        <div th:replace="~{fragments/footer :: footerBlock}"></div>
+    </body>
+</html> 
+

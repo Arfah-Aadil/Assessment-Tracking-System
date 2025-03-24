@@ -1,0 +1,20 @@
+.footer-class{
+    background-color: #091f35;;
+    padding: 20px 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.footer-text{
+    font-family: 'Times New Roman', Times, serif;
+    color: antiquewhite;
+}
+
+.footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:100px;   
+ }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>
+            Response to Moderator
+        </title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}">
+        <link th:href="@{/css/footer.css}" rel="stylesheet">
+        <link th:href="@{/css/navigationBar.css}" rel="stylesheet"> 
+        <script type="text/javascript" th:src="@{/javascript/home.js}"></script>
+    </head>
+    <body>
+        <div th:replace="~{fragments/navigationBar :: navigation}"></div>
+        <h4>Response to Moderator</h4>
+        <p>To be completed by setter</p>
+        <section class="container mt-2">
+            <form method="post" th:object="${leaderResponse}" id="form" class="mt-2">
+                <div class="mb-3">
+                    <label for="moduleTitleResponse" class="form-label">Module Title</label>
+                    <input th:field="*{moduleTitle}" type="text" th:field="*{moduleTitle}" class="form-control" id="moduleTitleResponse">
+                    <div th:errors="*{moduleTitle}" th:if="${#fields.hasErrors('moduleTitle')}" class="alert alert-danger mt-1">Module Title Error</div>
+                </div>
+                <div class="mb-3">
+                    <label for="moduleCodeResponse" class="form-label">Module Code</label>
+                    <input th:field="*{moduleCode}" type="text" th:field="*{moduleCode}" class="form-control" id="moduleCodeResponse">
+                    <div th:errors="*{moduleCode}" th:if="${#fields.hasErrors('moduleCode')}" class="alert alert-danger mt-1">Module Code Error</div>
+                </div>
+                <div class="mb-3">
+                    <label for="moduleLeaderResponse" class="form-label">Module Leader</label>
+                    <input th:field="*{moduleLeader}" type="text" th:field="*{moduleLeader}" class="form-control" id="moduleLeaderResponse">
+                    <div th:errors="*{moduleLeader}" th:if="${#fields.hasErrors('moduleLeader')}" class="alert alert-danger mt-1">Module Leader Error</div>
+                </div>
+                <div class="mb-3">
+                    <label for="ModeratorResponse" class="form-label">Moderator</label>
+                    <input th:field="*{moderator}" type="text" th:field="*{moderator}" class="form-control" id="ModeratorResponse">
+                    <div th:errors="*{moderator}" th:if="${#fields.hasErrors('Moderator')}" class="alert alert-danger mt-1">Internal Moderator Error</div>
+                </div> 
+                <div class="mb-3">
+                    <label for="comments" class="form-label">Response to moderator’s comments:</label>
+                    <textarea th:field="*{comments}" id="comments" rows="5" class="form-control" placeholder="Click to enter the text!"></textarea>
+                </div>
+                <!-- <div class="form-check mb-3">
+                    <input id="setter1" type="checkbox" class="form-check-input">
+                    <label for="setter1" class="form-check-label">Edits made and assessment placed in assessment team by setter</label>
+                </div> -->
+                <div class="mb-3">
+                    <label for="dateSetter1" class="form-label">Date Completed:</label>
+                    <input th:field="*{dateSetter1}" id="dateSetter1" type="text" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>
+        <div th:replace="~{fragments/footer :: footerBlock}"></div>
+    </body>
+</html>

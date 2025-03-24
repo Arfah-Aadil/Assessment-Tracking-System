@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link th:href="@{/css/footer.css}" rel="stylesheet">
+    <link th:href="@{/css/navigationBar.css}" rel="stylesheet"> 
+    <link th:href="@{/css/admin.css}" rel="stylesheet"> 
+    <script type="text/javascript" th:src="@{/javascript/home.js}"></script>
+</head>
+<body>
+    <div th:replace="~{fragments/navigationBar :: navigation}"></div>
+    <main class="main-r">
+        <div>
+          <h1 class="title">
+              Welcome to the admin.
+          </h1>
+        </div>
+          <div class="container">
+            <form action="/admin/register" method="POST" id="adminForm" name="adminForm" th:object="${admin}">
+              <label>Username (max 20char):<br>
+                  <input th:field="*{name}" type="text">
+                </label><br>
+                <div th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Username Error</div>
+          
+                <label>Password<br>
+                  <input th:field="*{password}" type="password">
+                </label><br>
+                <div th:errors="*{password}" th:if="${#fields.hasErrors('password')}">password Error</div>
+  
+                <label>Role<br>
+                <select th:field="*{role}">
+                  <option th:value="'ROLE_INTERNAL'">Internal</option>
+                  <option th:value="'ROLE_EXTERNAL'">External</option>
+                  <option th:value="'ROLE_PANEL'">Panel</option>
+                  <option th:value="'ROLE_LEADER'">Module Leader</option>
+                  <option th:value="'ROLE_ADMIN'">Admin</option>
+                </select>
+                </label><br>
+                <div th:errors="*{role}" th:if="${#fields.hasErrors('role')}">Role Error</div>
+  
+                <!-- <label>Role<br>
+                  <input th:field="*{role}" type="text">
+                </label><br>
+                <div th:errors="*{role}" th:if="${#fields.hasErrors('role')}">password Error</div> -->
+          
+                <input type="submit">
+              </form>
+            </div>
+      </main>
+      <footer class="footer">
+        <div th:replace="~{fragments/footer :: footerBlock}"></div>
+      </footer>
+</body>
+</html>

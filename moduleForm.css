@@ -1,0 +1,47 @@
+.main {
+    background-color: #f8f9fa;
+    color: #d43748;
+}
+
+.form {
+    width: 75%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.h1 {
+    text-align: center;
+}
+
+.form-details {
+    margin-bottom: 15px;
+}
+
+.form-value {
+    display: block;
+    font-weight: bold;
+}
+  
+input[type="text"],input[type="date"],input[type="datetime-local"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+  
+.button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #d43748;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+  
+.button[type="submit"]:hover {
+    background-color: #a5313d;
+}

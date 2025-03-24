@@ -1,0 +1,35 @@
+.header {
+    margin-top: 1em;
+}
+
+button, input[type="submit"] {
+    background-color: #d4374a !important;
+    color: white !important;
+    border: none !important;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #bb2e3a !important;
+}
+
+.title{
+    justify-content: center;
+    align-items: center;
+    color: #d4374a;
+    font-family: 'Times New Roman', Times, serif, Helvetica, sans-serif;
+    padding: 10px;
+    margin-top: 2px;
+}
+
+.main-r{
+    width: 30%;
+    height: 40%;
+    justify-content: center;
+    border: 1px;
+    margin-left: 70%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 50px 50px;
+}

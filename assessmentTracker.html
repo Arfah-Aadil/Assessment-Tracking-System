@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assessment Tracker</title>
+        <link th:href="@{/css/assessmentTracker.css}" rel="stylesheet">
+        <link th:href="@{/css/navigationBar.css}" rel="stylesheet">
+        <link th:href="@{/css/footer.css}" rel="stylesheet">   
+        <script type="text/javascript" th:src="@{/javascript/home.js}"></script>
+    </head>
+    <body class="ast">
+        <div th:replace="~{fragments/navigationBar :: navigation}"></div>
+        <main class="main" th:each="assessmentStatus: ${assessmentStatuses}">
+            <div class="assessment">
+                <span class="sp">Assessment Name :</span>
+                <h2 th:text="${assessmentStatus.assessmentName}"></h2>
+            </div>
+            <div class="pointer"></div>
+            <div class="status">
+                <span class="sp">Is currently at :</span>
+                <h2 th:text="${assessmentStatus.assessmentStatus}"></h2>
+            </div>
+        </main>
+        <footer>
+            <div th:replace="~{fragments/footer :: footerBlock}"></div>
+        </footer>
+    </body>
+</html>
